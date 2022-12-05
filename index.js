@@ -1,6 +1,6 @@
-const LambdaHandler = require('./LambdaHandler');
-const LambdaMiddleware = require('./LambdaMiddleware');
-const Lambda = require('./Lambda');
+const LambdaHandler = require('./lib/LambdaHandler');
+const LambdaMiddleware = require('./lib/LambdaMiddleware');
+const Lambda = require('./lib/Lambda');
 
 let lambdaHandler;
 let lambdaMiddleware;
