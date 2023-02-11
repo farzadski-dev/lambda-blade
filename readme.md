@@ -20,7 +20,7 @@ now inside the handlers create this GetDogsIntent.js, you must follow this struc
 
 ```
 // GetDogsIntent.js
-const { lambdaHandler, Lambda } =	require('lambda-blade').getLambda();
+const { lambdaHandler, Lambda } = require('lambda-blade').getLambda();
 
 const dogs = ['Boston Terriers', 'Cockapo'];
 
@@ -31,7 +31,7 @@ class GetDogsIntent extends Lambda {
 		super();
 	}
 
-	async execute(input) {
+    execute(input) {
 		return { dogs };
 	}
 }
@@ -42,12 +42,12 @@ module.exports = lambdaHandler;
 
 ```
 
-now after you call install() function, you can early call your lambda:
+now after you call install() function, you can easily call your lambda:
 ```
 const input = {};
 const INTENT = 'GetDogsIntent';
 const { lambdaHandler } = require('lambda-blade').getLambda();
-const data = await lambdaHandler.get(INTENT).execute(input); //input is optinal
+const data = lambdaHandler.get(INTENT).execute(input); //input is optinal
 console.log(data) // { dogs: [ 'Boston Terriers', 'Cockapo' ] }
 ```  
 
@@ -105,7 +105,7 @@ now you add VerifyTokenIntent in side the GetDogsIntent.js, now input is no long
 const input = { token: "eyJhbGciOiJIUzI1NiJ9" };
 const INTENT = 'GetDogsIntent';
 const { lambdaHandler } = require('lambda-blade').getLambda();
-const data = await lambdaHandler.get(INTENT).execute(input);
+const data = lambdaHandler.get(INTENT).execute(input);
 console.log(data) // { dogs: [ 'Boston Terriers', 'Cockapo' ] }
 ```  
 Easy right ? I think so...
