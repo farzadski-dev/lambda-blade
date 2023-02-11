@@ -59,7 +59,7 @@ const { lambdaMiddleware, Lambda } = require('lambda-blade').getLambda();
 class VerifyTokenIntent extends Lambda {
 	static INTENT = 'VerifyTokenIntent';
 
-	async execute(input) {
+	execute(input) {
 		if (input?.token !== 'eyJhbGciOiJIUzI1NiJ9') {
 			throw new Error("Invalid token");
         } else {
@@ -87,7 +87,7 @@ class GetDogsIntent extends Lambda {
 		super();
 	}
 
-	async execute(input) {
+	execute(input) {
         await lambdaMiddleware.get('VerifyTokenIntent').execute(input);
 		return { dogs };
 	}
